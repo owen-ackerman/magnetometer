@@ -48,10 +48,11 @@ def delta():
     dz = z - MZ
     print("dX: {} uT".format(dx), "dY: {} uT".format(dy),  "dZ: {} uT".format(dz))
 
-while True:
-    getData()
-    delta()
-    time.sleep(1.0)
+if button.value:
+    while True:
+        getData()
+        delta()
+        time.sleep(1.0)
 
 
 while True:
