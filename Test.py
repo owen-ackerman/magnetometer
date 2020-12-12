@@ -52,10 +52,8 @@ def delta():
 
 if button.value:
     while True:
+        buttonPress()
         getData()
         delta()
         time.sleep(1.0)
-
-
-while True:
-    buttonPress()
+        
