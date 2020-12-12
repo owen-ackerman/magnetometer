@@ -16,33 +16,43 @@ button = digitalio.DigitalInOut(board.D4)
 button.direction = digitalio.Direction.INPUT
 button.pull = digitalio.Pull.UP
 
-print(type(button.pull))
-print(type(button.direction))
-print(type(led.value))
-print(type(button.value))
 
 def getData():
     MX, MY, MZ = SENSOR.magnetic
     #print("[{}]".format(time.monotonic()))
-    print("XXXX: {} uT".format(MX), "Y: {} uT".format(MY),  "Z: {} uT".format(MZ))
+    #print("X: {} uT".format(MX), "Y: {} uT".format(MY),  "Z: {} uT".format(MZ))
+    MX, MY, MZ
     # Display the status field if an error occured, etc.
     if SENSOR.last_status > adafruit_mlx90393.STATUS_OK:
         SENSOR.display_status()
-    time.sleep(1.0)
+    
 
 def calibration():
+    global x, y, z
     x = MX
     y = MY
     z = MZ
-    led.value = not button.value
+    #led.value = button.value
     print(x, y, z)
     return x, y, z
 
 def buttonPress():
     if not button.value:
+        print(button.value)
         calibration()
+
+def delta():
+    global x, y, z
+    dx = x - MX
+    dy = y - MY
+    dz = z - MZ
+    print("dX: {} uT".format(dx), "dY: {} uT".format(dy),  "dZ: {} uT".format(dz))
 
 while True:
     getData()
-    if button.direction:
-        buttonPress()
+    delta()
+    time.sleep(1.0)
+
+
+while True:
+    buttonPress()
