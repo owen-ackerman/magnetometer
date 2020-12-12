@@ -32,6 +32,7 @@ def getData():
 def calibration():
     global x, y, z
     MX, MY, MZ
+    SENSOR.display_status()
     x = MX
     y = MY
     z = MZ
