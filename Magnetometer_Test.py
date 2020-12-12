@@ -15,6 +15,10 @@ led.direction = digitalio.Direction.OUTPUT
 button = digitalio.DigitalInOut(board.D4)
 button.direction = digitalio.Direction.INPUT
 button.pull = digitalio.Pull.UP
+print(type(button.pull))
+print(type(button.direction))
+print(type(led.value))
+print(type(button.value))
 
 def getData():
     MX, MY, MZ = SENSOR.magnetic
