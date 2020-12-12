@@ -7,7 +7,7 @@ import adafruit_mlx90393
 I2C_BUS = busio.I2C(board.SCL, board.SDA)
 SENSOR = adafruit_mlx90393.MLX90393(I2C_BUS, gain=adafruit_mlx90393.GAIN_1X)
  
-while True:
+def loop():
     MX, MY, MZ = SENSOR.magnetic
     #print("[{}]".format(time.monotonic()))
     print("X: {} uT".format(MX), "Y: {} uT".format(MY),  "Z: {} uT".format(MZ))
