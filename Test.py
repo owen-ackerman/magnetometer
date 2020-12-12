@@ -8,7 +8,9 @@ import adafruit_mlx90393
 I2C_BUS = busio.I2C(board.SCL, board.SDA)
 SENSOR = adafruit_mlx90393.MLX90393(I2C_BUS, gain=adafruit_mlx90393.GAIN_1X)
 MX, MY, MZ = SENSOR.magnetic 
-
+x = 0
+y = 0
+z = 0
 led = digitalio.DigitalInOut(board.D18)
 led.direction = digitalio.Direction.OUTPUT
  
