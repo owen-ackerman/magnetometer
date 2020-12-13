@@ -24,7 +24,6 @@ def getData():
     #MX, MY, MZ = SENSOR.magnetic
     #print("[{}]".format(time.monotonic()))
     #print("X: {} uT".format(MX), "Y: {} uT".format(MY),  "Z: {} uT".format(MZ))
-    
     # Display the status field if an error occured, etc.
     if SENSOR.last_status > adafruit_mlx90393.STATUS_OK:
         SENSOR.display_status()
@@ -52,10 +51,11 @@ def delta(list):
     dz = z - MZ
     print("dX: {} uT".format(dx), "dY: {} uT".format(dy),  "dZ: {} uT".format(dz))
 
-if button.value:
+def main():
     while True:
         buttonPress()
-        getData()
         delta(l)
-        time.sleep(1.0)
+
+main()
+
         
