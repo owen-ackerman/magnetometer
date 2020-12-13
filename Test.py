@@ -31,8 +31,7 @@ def getData():
 
 def calibration():
     global x, y, z
-    MX, MY, MZ
-    SENSOR.display_status()
+    MX, MY, MZ = SENSOR.magnetic
     x = MX
     y = MY
     z = MZ
@@ -42,10 +41,9 @@ def calibration():
 
 def buttonPress():
     if not button.value:
-        
         calibration()
 
-def delta():
+def delta(x, y, Z):
     global x, y, z
     dx = x - MX
     dy = y - MY
@@ -56,6 +54,6 @@ if button.value:
     while True:
         buttonPress()
         getData()
-        delta()
+        delta(x, y, z)
         time.sleep(1.0)
         
