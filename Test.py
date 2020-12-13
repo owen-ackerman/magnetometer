@@ -2,6 +2,7 @@ import time
 import busio
 import board
 import digitalio
+import math
  
 import adafruit_mlx90393
  
@@ -11,7 +12,8 @@ MX, MY, MZ = SENSOR.magnetic
 x = 0
 y = 0
 z = 0
-l = []
+l1 = []
+l2 = []
 led = digitalio.DigitalInOut(board.D18)
 led.direction = digitalio.Direction.OUTPUT
  
@@ -35,26 +37,37 @@ def calibration():
     x = MX
     y = MY
     z = MZ
-    l = [x, y, z]
-    led.value = not button.value
+    l1 = [x, y, z]
     print(x, y, z)
-    return l
+    return l1
 
 def buttonPress():
     if not button.value:
         calibration()
 
 def delta(list):
+    global dx, dy, dz
     MX, MY, MZ = SENSOR.magnetic
     dx = x - MX
     dy = y - MY
     dz = z - MZ
     print("dX: {} uT".format(dx), "dY: {} uT".format(dy),  "dZ: {} uT".format(dz))
+    l2 = [dx, dy, dz]
+    return l2
+
+def trip(l2):
+    v = math.sqrt(dx^2 + dy^2 + dz^2)
+    print(v)
+    if v > 10:
+        led.value = True
+
+
 
 def main():
     while True:
         buttonPress()
-        delta(l)
+        delta(l1)
+        trip(l2) 
 
 main()
 
