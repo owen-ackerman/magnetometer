@@ -21,6 +21,9 @@ button = digitalio.DigitalInOut(board.D4)
 button.direction = digitalio.Direction.INPUT
 button.pull = digitalio.Pull.UP
 
+led.value = True
+time.sleep(1)
+led.value = False
 
 def getData():
     #MX, MY, MZ = SENSOR.magnetic
