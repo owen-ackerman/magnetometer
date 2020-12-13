@@ -24,7 +24,7 @@ button.pull = digitalio.Pull.UP
 led.value = False
 
 def getData():
-    #MX, MY, MZ = SENSOR.magnetic
+    MX, MY, MZ = SENSOR.magnetic
     #print("[{}]".format(time.monotonic()))
     print("X: {} uT".format(MX), "Y: {} uT".format(MY),  "Z: {} uT".format(MZ))
     # Display the status field if an error occured, etc.
@@ -70,6 +70,7 @@ def trip(l2):
 def main():
     while True:
         buttonPress()
+        getData()
         delta(l1)
         trip(l2) 
 
