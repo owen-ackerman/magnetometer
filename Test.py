@@ -21,8 +21,6 @@ button = digitalio.DigitalInOut(board.D4)
 button.direction = digitalio.Direction.INPUT
 button.pull = digitalio.Pull.UP
 
-led.value = True
-time.sleep(1)
 led.value = False
 
 def getData():
@@ -64,7 +62,7 @@ def trip(l2):
     if v > 10:
         led.value = True
 
-    if v > 10:
+    if v < 10:
         led.value = False
 
 
