@@ -11,6 +11,7 @@ MX, MY, MZ = SENSOR.magnetic
 x = 0
 y = 0
 z = 0
+l = []
 led = digitalio.DigitalInOut(board.D18)
 led.direction = digitalio.Direction.OUTPUT
  
@@ -35,16 +36,17 @@ def calibration():
     x = MX
     y = MY
     z = MZ
+    l = [x, y, z]
     led.value = not button.value
     print(x, y, z)
-    return x, y, z
+    return l
 
 def buttonPress():
     if not button.value:
         calibration()
 
-def delta(x, y, Z):
-    global x, y, z
+def delta(list):
+    
     dx = x - MX
     dy = y - MY
     dz = z - MZ
@@ -54,6 +56,6 @@ if button.value:
     while True:
         buttonPress()
         getData()
-        delta(x, y, z)
+        delta(l)
         time.sleep(1.0)
         
