@@ -56,7 +56,7 @@ def delta(list):
     return l2
 
 def trip(l2):
-    v = math.sqrt(dx^2 + dy^2 + dz^2)
+    v = math.sqrt(math.pow(dx, 2) + math.pow(dy, 2) + math.pow(dz, 2))
     print(v)
     if v > 10:
         led.value = True
