@@ -61,6 +61,9 @@ def trip(l2):
     if v > 10:
         led.value = True
 
+    if v > 10:
+        led.value = False
+
 
 
 def main():
