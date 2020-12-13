@@ -26,7 +26,7 @@ led.value = False
 def getData():
     #MX, MY, MZ = SENSOR.magnetic
     #print("[{}]".format(time.monotonic()))
-    #print("X: {} uT".format(MX), "Y: {} uT".format(MY),  "Z: {} uT".format(MZ))
+    print("X: {} uT".format(MX), "Y: {} uT".format(MY),  "Z: {} uT".format(MZ))
     # Display the status field if an error occured, etc.
     if SENSOR.last_status > adafruit_mlx90393.STATUS_OK:
         SENSOR.display_status()
@@ -52,7 +52,7 @@ def delta(list):
     dx = x - MX
     dy = y - MY
     dz = z - MZ
-    print("dX: {} uT".format(dx), "dY: {} uT".format(dy),  "dZ: {} uT".format(dz))
+    #print("dX: {} uT".format(dx), "dY: {} uT".format(dy),  "dZ: {} uT".format(dz))
     l2 = [dx, dy, dz]
     return l2
 
