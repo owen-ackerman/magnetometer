@@ -55,7 +55,7 @@ def delta(list):
     print("dX: {} uT".format(dx), "dY: {} uT".format(dy),  "dZ: {} uT".format(dz))
     time.sleep(0.5)
     l2 = [dx, dy, dz]
-    return l2
+    return l2, MX
 
 def trip(self, MX):
     v = math.sqrt(math.pow(dx, 2) + math.pow(dy, 2) + math.pow(dz, 2))
