@@ -42,6 +42,8 @@ def calibration():
     print(x, y, z)
     return l1
 
+calibration()
+
 def buttonPress():
     if not button.value:
         calibration()
