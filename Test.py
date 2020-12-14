@@ -55,13 +55,13 @@ def delta(list):
     print("dX: {} uT".format(dx), "dY: {} uT".format(dy),  "dZ: {} uT".format(dz))
     time.sleep(0.5)
     l2 = [dx, dy, dz]
-    print("1:", MX)
     return l2, MX
 
 def trip(self, MX):
+    global MX
     v = math.sqrt(math.pow(dx, 2) + math.pow(dy, 2) + math.pow(dz, 2))
     print("v:", v)
-    print("2:", MX)
+    print("1:", MX)
     if v > magMath(MX):
         led.value = True
 
@@ -69,7 +69,7 @@ def trip(self, MX):
         led.value = False
 
 def magMath(MX):
-    print("3:", MX)
+    print("2:", MX)
     x = MX
     p = 1/(math.pow(x, 3))
     print ("p:", p)
