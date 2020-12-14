@@ -68,6 +68,7 @@ def trip(self):
 
 def magMath():
     global MX
+    print(MX)
     x = MX
     p = 1/(math.pow(x, 3))
     print ("p:", p)
