@@ -65,7 +65,7 @@ def trip(self):
     global b
     v = math.sqrt(math.pow(dx, 2) + math.pow(dy, 2) + math.pow(dz, 2))
     print("v:", v)
-    p = abs(b*(math.pow(x, 3)))
+    p = abs(b*(math.pow(x, 2)))
     print ("p:", p) 
     if v > p:
         led.value = True
