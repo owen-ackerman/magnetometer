@@ -3,7 +3,6 @@ import busio
 import board
 import digitalio
 import math
- 
 import adafruit_mlx90393
  
 I2C_BUS = busio.I2C(board.SCL, board.SDA)
@@ -49,6 +48,8 @@ def buttonPress():
     if not button.value:
         calibration()
 
+   # buttonPress()
+
 def delta(list):
     global dx, dy, dz
     MX, MY, MZ = SENSOR.magnetic
@@ -73,11 +74,8 @@ def trip(self):
     if v < p:
         led.value = False
 
-
-
 def main():
     while True:
-        buttonPress()
         #getData()
         delta(l1)
         trip(l2) 
