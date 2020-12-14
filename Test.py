@@ -53,6 +53,7 @@ def delta(list):
     dy = y - MY
     dz = z - MZ
     print("dX: {} uT".format(dx), "dY: {} uT".format(dy),  "dZ: {} uT".format(dz))
+    time.sleep(0.5)
     l2 = [dx, dy, dz]
     return l2
 
