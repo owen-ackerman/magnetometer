@@ -39,7 +39,7 @@ def calibration():
     y = MY
     z = MZ
     l1 = [x, y, z]
-    print(x, y, z)
+    print("Calibration!",x, y, z)
     return l1
 
 calibration()
@@ -70,7 +70,7 @@ def trip(self):
 
 def magMath():
     global x
-    p = 1/(math.pow(x, 3))
+    p = 10/(math.pow(x, 3))
     print ("p:", p)
     return p
 
