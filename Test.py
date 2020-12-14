@@ -69,7 +69,7 @@ def trip(self):
 def magMath():
     global MX
     MX = SENSOR.magnetic
-    p = 1/(pow(MX, 3))
+    p = 1/(math.pow(MX, 3))
     print ("p:", p)
     return p
 
