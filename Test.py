@@ -14,6 +14,7 @@ y = 0
 z = 0
 l1 = []
 l2 = []
+b = 1/100
 led = digitalio.DigitalInOut(board.D18)
 led.direction = digitalio.Direction.OUTPUT
  
@@ -61,9 +62,10 @@ def delta(list):
 
 def trip(self):
     global x
+    global b
     v = math.sqrt(math.pow(dx, 2) + math.pow(dy, 2) + math.pow(dz, 2))
     print("v:", v)
-    p = (math.pow(x, 3))
+    p = b*(math.pow(x, 3))
     print ("p:", p) 
     if v > p:
         led.value = True
