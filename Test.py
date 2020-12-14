@@ -59,7 +59,7 @@ def delta(list):
 
 def trip(self):
     v = math.sqrt(math.pow(dx, 2) + math.pow(dy, 2) + math.pow(dz, 2))
-    print(v)
+    print("v:", v)
     if v > magMath():
         led.value = True
 
@@ -69,7 +69,7 @@ def trip(self):
 def magMath():
     global MX
     p = 1/(pow(MX, 3))
-    print (p)
+    print ("p:", p)
     return p
 
 
