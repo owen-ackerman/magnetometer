@@ -63,7 +63,7 @@ def trip(self):
     global x
     v = math.sqrt(math.pow(dx, 2) + math.pow(dy, 2) + math.pow(dz, 2))
     print("v:", v)
-    p = 10/(math.pow(x, 3))
+    p = 10*(math.pow(x, 3))
     print ("p:", p) 
     if v > p:
         led.value = True
