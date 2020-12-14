@@ -57,17 +57,16 @@ def delta(list):
     l2 = [dx, dy, dz]
     return l2
 
-def trip(self):
+def trip(self, MX):
     v = math.sqrt(math.pow(dx, 2) + math.pow(dy, 2) + math.pow(dz, 2))
     print("v:", v)
-    if v > magMath():
+    if v > magMath(MX):
         led.value = True
 
-    if v < magMath():
+    if v < magMath(MX):
         led.value = False
 
-def magMath():
-    global MX
+def magMath(MX):
     print(MX)
     x = MX
     p = 1/(math.pow(x, 3))
@@ -80,7 +79,7 @@ def main():
         buttonPress()
         #getData()
         delta(l1)
-        trip(l2) 
+        trip(l2, MX) 
 
 main()
 
